@@ -1,5 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import '/src/config/custom_colors.dart';
 import '/src/components/custom_text_field.dart';
 
 class SignInScreen extends StatelessWidget {
@@ -8,7 +9,7 @@ class SignInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green,
+      backgroundColor: CustomColors.customSwatchColor,
       body: Column(
         children: [
           Expanded(
@@ -16,13 +17,13 @@ class SignInScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 //nome do app
-                const Text.rich(
+                 Text.rich(
                   TextSpan(
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 40,
                     ),
                     children: [
-                      TextSpan(
+                      const TextSpan(
                         text: 'Grocery',
                         style: TextStyle(
                           color: Colors.white,
@@ -32,7 +33,7 @@ class SignInScreen extends StatelessWidget {
                       TextSpan(
                         text: 'Store',
                         style: TextStyle(
-                          color: Colors.red,
+                          color: CustomColors.customContrastColor,
                         )
                       )
                     ]
@@ -107,9 +108,9 @@ class SignInScreen extends StatelessWidget {
                   alignment: Alignment.centerRight,
                   child: TextButton(
                     onPressed: (){},
-                    child: const Text('Esqueceu a senha?',
+                    child: Text('Esqueceu a senha?',
                       style: TextStyle(
-                        color: Colors.red
+                        color: CustomColors.customContrastColor
                       ),
                     ),
                   ),
