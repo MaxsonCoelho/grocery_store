@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import '/src/components/custom_text_field.dart';
 
@@ -10,11 +11,12 @@ class SignInScreen extends StatelessWidget {
       backgroundColor: Colors.green,
       body: Column(
         children: [
-          const Expanded(
+          Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text.rich(
+                //nome do app
+                const Text.rich(
                   TextSpan(
                     style: TextStyle(
                       fontSize: 40,
@@ -36,7 +38,27 @@ class SignInScreen extends StatelessWidget {
                     ]
                   )
                 ),
-                Text('Frutas e Legumes'),
+                //categorias
+                  SizedBox(
+                    height: 30,
+                    child: DefaultTextStyle(
+                      style: const TextStyle(
+                        fontSize: 25
+                      ),
+                    child: AnimatedTextKit(
+                      repeatForever: true,
+                      pause: Duration.zero,
+                      animatedTexts: [
+                        FadeAnimatedText('Frutas'),
+                        FadeAnimatedText('Legumes'),
+                        FadeAnimatedText('Verduras'),
+                        FadeAnimatedText('Carnes'),
+                        FadeAnimatedText('Cereais'),
+                        FadeAnimatedText('Laticíneos'),
+                      ],
+                    ),
+                                  ),
+                  )
               ],
             )
           ),
