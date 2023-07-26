@@ -1,7 +1,8 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import '/src/auth/sign_up_screen.dart';
 import '/src/config/custom_colors.dart';
-import '/src/components/custom_text_field.dart';
+import 'components/custom_text_field.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({super.key});
@@ -160,7 +161,13 @@ class SignInScreen extends StatelessWidget {
                           ),
                         ),
                         onPressed: () {
-                          
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (c) {
+                                return const SignUpScreen();
+                              }
+                            ),
+                          );
                         },
                         child: const Text('Criar conta', 
                           style: TextStyle(
