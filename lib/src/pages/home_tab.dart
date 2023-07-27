@@ -26,22 +26,17 @@ class HomeTab extends StatelessWidget {
             ])),
         actions: [
           Padding(
-            padding: const EdgeInsets.only(
-              top: 15,
-              right: 15
-            ),
+            padding: const EdgeInsets.only(top: 15, right: 15),
             child: GestureDetector(
               onTap: () {},
               child: packageBadge.Badge(
-              badgeStyle: packageBadge.BadgeStyle(
-                padding: const EdgeInsets.all(8),
-                badgeColor: CustomColors.customContrastColor,
-              ),
-                badgeContent: const Text('2',
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.white
-                  ),
+                badgeStyle: packageBadge.BadgeStyle(
+                  padding: const EdgeInsets.all(8),
+                  badgeColor: CustomColors.customContrastColor,
+                ),
+                badgeContent: const Text(
+                  '2',
+                  style: TextStyle(fontSize: 14, color: Colors.white),
                 ),
                 child: IconButton(
                   onPressed: () {},
@@ -50,6 +45,34 @@ class HomeTab extends StatelessWidget {
                   iconSize: 25,
                 ),
               ),
+            ),
+          )
+        ],
+      ),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: 10,
+              horizontal: 20,
+            ),
+            child: TextFormField(
+              decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
+                  isDense: true,
+                  hintText: 'Pesquise aqui...',
+                  hintStyle:
+                      TextStyle(color: Colors.grey.shade400, fontSize: 14),
+                  prefixIcon: Icon(
+                    Icons.search,
+                    color: CustomColors.customContrastColor,
+                    size: 22,
+                  ),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(60),
+                      borderSide:
+                          const BorderSide(width: 0, style: BorderStyle.none))),
             ),
           )
         ],
