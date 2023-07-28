@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_store/src/config/custom_colors.dart';
 import 'package:badges/badges.dart' as packageBadge;
+import 'package:grocery_store/src/config/app_data.dart' as appData;
 
 import 'components/category_tile.dart';
 
@@ -12,13 +13,6 @@ class HomeTab extends StatefulWidget {
 }
 
 class _HomeTabState extends State<HomeTab> {
-  List<String> categories = [
-    'Frutas',
-    'Grãos',
-    'Verduras',
-    'Temperos',
-    'Cereais'
-  ];
 
   String selectedCategory = 'Frutas';
 
@@ -104,17 +98,17 @@ class _HomeTabState extends State<HomeTab> {
                 return CategoryTile(
                   onPressed: () {
                     setState(() {
-                      selectedCategory = categories[index];
+                      selectedCategory = appData.categories[index];
                     });
                   },
-                  category: categories[index],
-                  isSelected: categories[index] == selectedCategory,
+                  category: appData.categories[index],
+                  isSelected: appData.categories[index] == selectedCategory,
                 );
               },
               separatorBuilder: (_, index) => const SizedBox(
                 width: 10,
               ),
-              itemCount: categories.length,
+              itemCount: appData.categories.length,
             ),
           )
         ],
