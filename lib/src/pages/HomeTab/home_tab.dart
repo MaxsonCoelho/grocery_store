@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:grocery_store/src/config/custom_colors.dart';
 import 'package:badges/badges.dart' as packageBadge;
 import 'package:grocery_store/src/config/app_data.dart' as appData;
-import 'package:grocery_store/src/pages/HomeTab/components/item_tile.dart';
+import 'package:grocery_store/src/pages/homeTab/components/item_tile.dart';
 
 import 'components/category_tile.dart';
 
