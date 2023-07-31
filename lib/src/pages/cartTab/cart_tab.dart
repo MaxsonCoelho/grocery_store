@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_store/src/config/custom_colors.dart';
 import 'package:grocery_store/src/services/utils_services.dart';
+import 'package:grocery_store/src/config/app_data.dart' as appData;
 
 class CartTab extends StatelessWidget {
   CartTab({super.key});
@@ -15,9 +16,12 @@ class CartTab extends StatelessWidget {
       ),
       body: Column(
         children: [
-          const Expanded(
-            child: Placeholder(
-              color: Colors.red,
+          Expanded(
+            child: ListView.builder(
+              itemBuilder: (_, index) {
+                return Text(appData.cartItems[index].item.itemName);
+              },
+              itemCount: appData.cartItems.length,
             ),
           ),
           const SizedBox(
@@ -55,16 +59,16 @@ class CartTab extends StatelessWidget {
                       color: CustomColors.customSwatchColor,
                       fontWeight: FontWeight.bold),
                 ),
-                const SizedBox(height: 20,),
+                const SizedBox(
+                  height: 20,
+                ),
                 SizedBox(
                   height: 50,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: CustomColors.customSwatchColor,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18)
-                      )
-                    ),
+                        backgroundColor: CustomColors.customSwatchColor,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(18))),
                     onPressed: () {},
                     child: const Text(
                       'Concluir pedido',
