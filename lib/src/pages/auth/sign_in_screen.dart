@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:grocery_store/src/pages/auth/sign_up_screen.dart';
 import 'package:grocery_store/src/pages/base/base_screen.dart';
 import '/src/config/custom_colors.dart';
-import 'components/custom_text_field.dart';
+import '../commom_widgets/custom_text_field.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({super.key});
