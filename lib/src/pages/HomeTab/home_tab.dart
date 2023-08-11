@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:grocery_store/src/config/custom_colors.dart';
 import 'package:badges/badges.dart' as packageBadge;
 import 'package:grocery_store/src/config/app_data.dart' as appData;
+import 'package:grocery_store/src/pages/cartTab/cart_tab.dart';
 import 'package:grocery_store/src/pages/homeTab/components/item_tile.dart';
 
 import 'components/category_tile.dart';
@@ -39,7 +40,15 @@ class _HomeTabState extends State<HomeTab> {
           Padding(
             padding: const EdgeInsets.only(top: 15, right: 15),
             child: GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return const CartTab();
+                    },
+                  ),
+                );
+              },
               child: packageBadge.Badge(
                 badgeStyle: packageBadge.BadgeStyle(
                   padding: const EdgeInsets.all(8),

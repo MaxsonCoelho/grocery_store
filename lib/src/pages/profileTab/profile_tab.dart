@@ -116,7 +116,7 @@ class _ProfileTabState extends State<ProfileTab> {
                       ),
                       ElevatedButton(
                         onPressed: () {
-                          Navigator.of(context).pop();
+                          
                         },
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
@@ -134,7 +134,9 @@ class _ProfileTabState extends State<ProfileTab> {
                   top: 5,
                   right: 5,
                   child: IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
                     icon: const Icon(
                       Icons.close,
                     ),
@@ -143,6 +145,7 @@ class _ProfileTabState extends State<ProfileTab> {
               ],
             ),
           );
-        });
+      }
+    );
   }
 }
