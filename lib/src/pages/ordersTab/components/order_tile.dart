@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_store/src/models/cart_item_model.dart';
 import 'package:grocery_store/src/models/order_model.dart';
 import 'package:grocery_store/src/services/utils_services.dart';
 
@@ -35,7 +36,62 @@ class OrderTile extends StatelessWidget {
               )
             ],
           ),
+          childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+          children: [
+            SizedBox(
+              height: 150,
+              child: Row(
+                children: [
+                  Expanded(
+                    flex: 3,
+                    child: ListView(
+                      children: order.items.map(
+                        (orderItem) {
+                          return _OrderItemWidget(
+                            utilsServices: utilsServices,
+                            orderItem: orderItem,
+                          );
+                        },
+                      ).toList(),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 2,
+                    child: Container(
+                      color: Colors.black45,
+                    ),
+                  ),
+                ],
+              ),
+            )
+          ],
         ),
+      ),
+    );
+  }
+}
+
+class _OrderItemWidget extends StatelessWidget {
+  const _OrderItemWidget({
+    required this.utilsServices,
+    required this.orderItem,
+  });
+
+  final UtilsServices utilsServices;
+  final CartItemModel orderItem;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10),
+      child: Row(
+        children: [
+          Text('${orderItem.quantity} ${orderItem.item.unit} ', style: const TextStyle(
+            fontWeight: FontWeight.bold
+          ),),
+          Expanded(child: Text(orderItem.item.itemName)),
+          Text(UtilsServices().priceToCurrency(orderItem.totalPrice())),
+        ],
       ),
     );
   }
