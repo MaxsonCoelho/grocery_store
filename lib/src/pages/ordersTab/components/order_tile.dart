@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_store/src/models/cart_item_model.dart';
 import 'package:grocery_store/src/models/order_model.dart';
+import 'package:grocery_store/src/pages/ordersTab/components/order_status_widget.dart';
 import 'package:grocery_store/src/services/utils_services.dart';
 
 class OrderTile extends StatelessWidget {
@@ -55,10 +56,18 @@ class OrderTile extends StatelessWidget {
                       ).toList(),
                     ),
                   ),
+
+                  VerticalDivider(
+                    color: Colors.grey.shade300,
+                    thickness: 2,
+                    width: 8,
+                  ),
+
                   Expanded(
                     flex: 2,
-                    child: Container(
-                      color: Colors.black45,
+                    child: OrederStatusWidget(
+                      stauts: order.status,
+                      isOverdue: order.overdueDateTime.isBefore( DateTime.now() ),
                     ),
                   ),
                 ],
